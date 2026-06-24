@@ -1,0 +1,10 @@
+# 정적 사이트 — 별도 빌드 없이 루트를 그대로 배포
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"

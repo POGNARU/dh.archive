@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
+node_modules/
+
+# 개인 원본 데이터 — 공개 저장소에 올리지 않음
+source/
+*.db
+*.db-journal
+*.zip
+
+# 메모/리뷰 원문(전체) — 분석 입력용, DB에서 매번 재생성되므로 커밋하지 않음
+# (공개되는 건 data/curation.json 의 엄선된 일부뿐)
+data/quotes.json
+data/comments.json
