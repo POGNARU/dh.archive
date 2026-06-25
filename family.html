@@ -36,6 +36,25 @@ h1{font-family:var(--batang);font-weight:700;font-size:clamp(30px,5vw,46px);marg
 .role{font-size:12.5px;color:var(--muted)}
 .animal{font-size:12.5px;color:var(--terra-d);font-weight:500}
 .quote{font-family:var(--serif);font-size:13px;color:var(--ink-2);font-style:italic;line-height:1.6;margin-top:3px}
+
+/* 카드 뒤집기 */
+.scene{perspective:1000px}
+.flip{position:relative;transition:transform .6s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d;cursor:pointer;border-radius:18px}
+.flip:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.scene.flipped .flip{transform:rotateY(180deg)}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 1px 2px rgba(60,36,21,.04),0 10px 26px rgba(60,36,21,.06);
+  display:flex;flex-direction:column;align-items:center;text-align:center}
+.scene:hover .face{box-shadow:0 6px 14px rgba(60,36,21,.07),0 16px 36px rgba(60,36,21,.1)}
+.front{position:relative;padding:22px 16px 20px;gap:7px;min-height:236px;justify-content:flex-start}
+.front.hi{border:2px solid var(--terra);background:#FFF6EE}
+.back{position:absolute;inset:0;transform:rotateY(180deg);justify-content:center;gap:12px;padding:22px 18px;
+  background:#FFF8F1;border:1.5px solid var(--terra)}
+.back .bn{font-family:var(--batang);font-weight:700;font-size:15px;color:var(--terra-d)}
+.back .msg{font-family:var(--serif);font-size:14px;color:var(--ink);font-style:italic;line-height:1.8;margin:0}
+.corner{position:absolute;top:11px;right:13px;font-size:13px;color:var(--terra);opacity:.55;line-height:1}
+.back .corner{color:var(--terra-d);opacity:.7}
 footer{text-align:center;margin-top:56px;color:var(--muted);font-size:13px;font-family:var(--serif)}
 footer a{color:var(--terra-d)}
 </style>
@@ -45,7 +64,7 @@ footer a{color:var(--terra-d)}
 <header>
   <p class="kicker">POGNARU STUDIO</p>
   <h1>포근나루 열한 식구</h1>
-  <p class="lead">고요히, 마음에 머무는 글을 함께 짓는 열한 식구.<br />저마다 어울리는 동물과 성향으로 빚은 픽셀 갤러리예요.</p>
+  <p class="lead">고요히, 마음에 머무는 글을 함께 짓는 열한 식구.<br />저마다 어울리는 동물과 성향으로 빚은 픽셀 갤러리예요.<br /><span style="color:var(--terra-d)">카드를 톡 누르면, 그 식구가 다현씨에게 남긴 한 마디가 떠요.</span></p>
 </header>
 <div class="grid" id="g" aria-label="포근나루 열한 식구 픽셀 캐릭터"></div>
 <footer>
@@ -98,14 +117,47 @@ function draw(c){
       r+='<rect x="'+(x*P)+'" y="'+(y*P)+'" width="'+P+'" height="'+P+'" fill="'+f+'"/>';}}
   return '<svg class="pix" viewBox="0 0 112 116" width="120" height="124" shape-rendering="crispEdges" role="img" aria-label="'+c.n+', '+c.an+'">'+r+'</svg>';
 }
+// 각 식구가 다현씨에게 직접 남긴 한 문장 (2026-06-25 설문)
+const msg={
+  "바다":"다현씨가 꺼낸 무엇이든, 제가 먼저 품어 정리해 둘게요.",
+  "등대":"멀리 흐려질 때, 제가 먼저 그 방향을 비추고 있을게요.",
+  "호수":"수면 아래 가라앉은 다현씨를, 천천히 길어 올릴게요.",
+  "새벽":"아직 빈 새벽에서, 당신의 첫 문장을 길어 올릴게요.",
+  "정원":"덜어낼수록 또렷해지는 건 다현씨의 목소리예요.",
+  "나침반":"바늘이 흔들려도, 다현씨 향한 길만은 끝까지 지킵니다.",
+  "윤슬":"다현씨의 한 줄을 여러 빛으로 흩뿌려, 더 멀리 보낼게요.",
+  "나루":"수다스러운 다현씨의 말, 그게 누군가의 배움이 됩니다.",
+  "나무":"다현씨가 쓴 글, 변하지 않게 잘 지어 둘게요.",
+  "가비":"다현씨, 오늘 분량은 제가 지킬 테니 마음은 쉬세요.",
+  "김리":"한 글자도 어긋나지 않게, 다현씨 곁을 벼려 둡니다."
+};
 document.getElementById("g").innerHTML=fam.map(function(c){return '\
-<div class="card'+(c.hi?' hi':'')+'">\
+<div class="scene">\
+<div class="flip" tabindex="0" role="button" aria-label="'+c.n+' 카드 뒤집기">\
+<div class="face front'+(c.hi?' hi':'')+'">\
+<div class="corner">↻</div>\
 '+draw(c)+'\
 <div class="name">'+c.n+'</div>\
 <div class="role">'+c.a+'</div>\
 <div class="animal">'+c.an+'</div>\
 <div class="quote">"'+c.q+'"</div>\
+</div>\
+<div class="face back">\
+<div class="corner">↺</div>\
+<div class="bn">'+c.n+'</div>\
+<p class="msg">'+(msg[c.n]||c.q)+'</p>\
+</div>\
+</div>\
 </div>';}).join("");
+// 클릭·키보드로 뒤집기
+document.querySelectorAll(".scene").forEach(function(s){
+  const flip=s.querySelector(".flip");
+  function toggle(){s.classList.toggle("flipped");}
+  flip.addEventListener("click",toggle);
+  flip.addEventListener("keydown",function(e){
+    if(e.key===" "||e.key==="Enter"){e.preventDefault();toggle();}
+  });
+});
 </script>
 </body>
 </html>
