@@ -11,11 +11,11 @@
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
 :root{
-  --paper:#F4EEE1; --paper-2:#EFE7D6; --card:#FBF7EE; --ink:#221E18; --ink-2:#4A4338;
-  --muted:#7A7062; --line:#DACFB9; --line-2:#E7DFCC;
-  --terra:#C04A2B; --terra-d:#9E3A20; --teal:#36605F; --gold:#C39536; --plum:#7E4A60;
-  --sage:#73804E; --blue:#3D5A7A; --rose:#B96A6A;
-  --shadow:0 1px 2px rgba(60,46,24,.04),0 10px 30px rgba(60,46,24,.07);
+  --paper:#0E1320; --paper-2:#1B2233; --card:#161C2B; --ink:#F4F6FB; --ink-2:#A6B0C6;
+  --muted:#7E8AA3; --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.07);
+  --terra:#5FE0C0; --terra-d:#7BE9D0; --teal:#9B8CFF; --gold:#FFC46B; --plum:#F2849E;
+  --sage:#7FD17F; --blue:#5BA8F0; --rose:#F5A0B5;
+  --shadow:0 1px 2px rgba(0,0,0,.25),0 12px 34px rgba(0,0,0,.4);
   --serif:"Noto Serif KR",serif; --batang:"Gowun Batang",serif;
   --sans:"Pretendard",-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
 }
@@ -36,11 +36,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.25;letter-spacin
 .muted{color:var(--muted)}
 
 /* ---- grain / texture ---- */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
-  background-image:radial-gradient(rgba(120,90,40,.05) 1px,transparent 1px);background-size:3px 3px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6;
+  background-image:radial-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:3px 3px}
 
 /* ---- nav ---- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(244,238,225,.86);
+.nav{position:sticky;top:0;z-index:50;background:rgba(14,19,32,.82);
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
 .nav .brand{font-family:var(--serif);font-weight:700;font-size:1.02rem;letter-spacing:-.02em}
@@ -67,7 +67,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opa
 .hstat .n small{font-size:.5em;font-weight:600;color:var(--muted);margin-left:3px}
 .hstat .l{font-size:.82rem;color:var(--muted);margin-top:9px;letter-spacing:.02em}
 .hero .deco{position:absolute;right:-60px;top:40px;font-family:var(--serif);
-  font-size:18rem;color:rgba(192,74,43,.06);font-weight:900;z-index:0;line-height:1;user-select:none}
+  font-size:18rem;color:rgba(95,224,192,.05);font-weight:900;z-index:0;line-height:1;user-select:none}
 
 /* ---- stat cards ---- */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -159,7 +159,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 .ll-track{height:3px;background:var(--line);flex-grow:0;border-radius:2px;width:0;
   transition:width 1s cubic-bezier(.2,.7,.2,1)}
 .ll-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:.74rem;font-weight:800;color:#fff;flex:none;box-shadow:0 2px 6px rgba(60,46,24,.16)}
+  font-size:.74rem;font-weight:800;color:#0E1320;flex:none;box-shadow:0 2px 6px rgba(0,0,0,.3)}
 
 /* ---- list cards (reread/life/annotated) ---- */
 .listcols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -189,11 +189,11 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 .mrow .evi b{color:var(--terra-d);font-family:var(--sans);font-weight:600;font-size:.8rem}
 
 /* ---- DNA section ---- */
-.dna{background:linear-gradient(165deg,#2A241C,#211C16);color:#F4EEE1;border-radius:24px;
-  padding:54px clamp(24px,5vw,60px);position:relative;overflow:hidden;box-shadow:0 30px 60px rgba(30,22,12,.3)}
-.dna::after{content:"";position:absolute;inset:0;opacity:.4;
-  background:radial-gradient(circle at 80% 10%,rgba(192,74,43,.22),transparent 45%),
-  radial-gradient(circle at 10% 90%,rgba(54,96,95,.22),transparent 45%)}
+.dna{background:linear-gradient(165deg,#1B2336,#10162400),#141B2B;color:#F4F6FB;border-radius:24px;
+  padding:54px clamp(24px,5vw,60px);position:relative;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.08)}
+.dna::after{content:"";position:absolute;inset:0;opacity:.5;
+  background:radial-gradient(circle at 80% 10%,rgba(155,140,255,.22),transparent 45%),
+  radial-gradient(circle at 10% 90%,rgba(95,224,192,.18),transparent 45%)}
 .dna>*{position:relative;z-index:2}
 .dna .kicker{color:var(--gold)}
 .dna h2{color:#fff;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
@@ -204,7 +204,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 @media(max-width:680px){.dna-helix{grid-template-columns:1fr}}
 .gene{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid rgba(244,238,225,.12)}
 .gene .code{font-family:var(--serif);font-weight:800;font-size:1.05rem;color:var(--gold);
-  border:1.5px solid rgba(195,149,54,.5);border-radius:9px;padding:6px 10px;min-width:54px;text-align:center;flex:none}
+  border:1.5px solid rgba(255,196,107,.45);border-radius:9px;padding:6px 10px;min-width:54px;text-align:center;flex:none}
 .gene .gt{font-size:.92rem}
 .gene .gt b{display:block;color:#fff;font-weight:700;margin-bottom:2px}
 .gene .gt span{color:rgba(244,238,225,.6);font-size:.82rem}
@@ -227,11 +227,11 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 .rec{background:var(--card);border:1px solid var(--line-2);border-radius:16px;padding:24px;
   box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
 .rec .rnum{position:absolute;top:14px;right:18px;font-family:var(--serif);font-weight:900;
-  font-size:2.4rem;color:rgba(192,74,43,.12);line-height:1}
+  font-size:2.4rem;color:rgba(95,224,192,.14);line-height:1}
 .rec .rmeta{display:flex;gap:8px;flex-wrap:wrap}
 .rec .tag{font-size:.72rem;font-weight:600;border-radius:999px;padding:3px 10px;
   background:var(--paper-2);border:1px solid var(--line);color:var(--ink-2)}
-.rec .tag.c{color:var(--teal);border-color:rgba(54,96,95,.3)}
+.rec .tag.c{color:var(--teal);border-color:rgba(155,140,255,.35)}
 .rec h4{font-family:var(--serif);font-size:1.18rem;margin:2px 0 0;line-height:1.3;padding-right:40px}
 .rec .au{font-size:.84rem;color:var(--muted)}
 .rec .why{font-size:.92rem;color:var(--ink-2);line-height:1.65}
@@ -239,7 +239,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 .rec .conn b{font-weight:600}
 
 /* ---- footer ---- */
-footer{background:#211C16;color:#E9E0CE;padding:64px 0 54px;margin-top:40px}
+footer{background:#0A0E18;color:#A6B0C6;padding:64px 0 54px;margin-top:40px;border-top:1px solid rgba(255,255,255,.08)}
 footer .wrap{display:flex;flex-direction:column;gap:26px}
 footer h3{color:#fff;font-size:1.3rem}
 .team{display:flex;gap:26px;flex-wrap:wrap}
@@ -474,7 +474,7 @@ footer .fine{font-size:.8rem;color:rgba(233,224,206,.5);border-top:1px solid rgb
 (function(){
   "use strict";
   var D = (window.DATA||{}); var A = D.analysis||{};
-  var PAL = ["#C04A2B","#36605F","#C39536","#7E4A60","#3D5A7A","#73804E","#B96A6A","#9E3A20","#5A7D7B","#A6772E","#4A4338","#94614F","#6B8E7E","#B08A4F"];
+  var PAL = ["#5FE0C0","#9B8CFF","#FF8A6B","#FFC46B","#5BA8F0","#7FD17F","#F2849E","#4FD0B5","#B79BFF","#FFB07A","#FFD98A","#86C5F5","#9BDB9B","#F5A0B5"];
   function $(id){return document.getElementById(id);}
   function fmt(n){return (n||0).toLocaleString("ko-KR");}
   function el(tag,attrs,html){var e=document.createElement(tag);if(attrs)for(var k in attrs)e.setAttribute(k,attrs[k]);if(html!=null)e.innerHTML=html;return e;}
@@ -544,10 +544,10 @@ footer .fine{font-size:.8rem;color:rgba(233,224,206,.5);border-top:1px solid rgb
     });
   }
 
-  renderBars($("genreBars"),A.genre,{pctOf:true,color:"#C04A2B"});
-  renderBars($("genreStarBars"),A.genre_avg_star,{useAvg:true,max:5,color:"#36605F"});
-  renderBars($("natBars"),A.nationality,{pctOf:true,color:"#3D5A7A"});
-  renderBars($("eraBars"),A.era,{pctOf:true,color:"#7E4A60"});
+  renderBars($("genreBars"),A.genre,{pctOf:true,color:"#5FE0C0"});
+  renderBars($("genreStarBars"),A.genre_avg_star,{useAvg:true,max:5,color:"#9B8CFF"});
+  renderBars($("natBars"),A.nationality,{pctOf:true,color:"#5BA8F0"});
+  renderBars($("eraBars"),A.era,{pctOf:true,color:"#F2849E"});
 
   /* ---------- era stacked bar ---------- */
   (function(){
@@ -577,12 +577,12 @@ footer .fine{font-size:.8rem;color:rgba(233,224,206,.5);border-top:1px solid rgb
   }
   // 모든 수치는 완독 229권(완결성 도넛만 전체 256권) 기준 · 중앙값은 데이터에서 자동 계산
   var donutDefs=[
-    {h:"매체",parts:[{l:"종이책",v:197},{l:"전자책",v:32}],col:["#C04A2B","#36605F"],hi:0,csub:"종이책"},
-    {h:"창작지",parts:[{l:"한국문학",v:s.korean},{l:"번역 세계문학",v:s.translated}],col:["#3D5A7A","#C39536"],hi:1,csub:"세계문학"},
-    {h:"동행",parts:[{l:"독서모임 함께",v:s.club_books},{l:"혼자",v:s.done-s.club_books}],col:["#7E4A60","#D8CDB6"],hi:0,csub:"함께 읽기"},
-    {h:"재독",parts:[{l:"다시 읽음",v:s.rereads},{l:"한 번",v:s.done-s.rereads}],col:["#73804E","#D8CDB6"],hi:0,centerType:"count",csub:"다시 펼침"},
-    {h:"완결성",parts:[{l:"완독",v:s.done},{l:"읽는 중·중단",v:s.unfinished}],col:["#36605F","#D8CDB6"],hi:0,csub:"완독률"},
-    {h:"형식",parts:[{l:"소설·문학",v:125},{l:"비소설·교양",v:104}],col:["#C04A2B","#3D5A7A"],hi:0,csub:"소설·문학"}
+    {h:"매체",parts:[{l:"종이책",v:197},{l:"전자책",v:32}],col:["#5FE0C0","#9B8CFF"],hi:0,csub:"종이책"},
+    {h:"창작지",parts:[{l:"한국문학",v:s.korean},{l:"번역 세계문학",v:s.translated}],col:["#5BA8F0","#FFC46B"],hi:1,csub:"세계문학"},
+    {h:"동행",parts:[{l:"독서모임 함께",v:s.club_books},{l:"혼자",v:s.done-s.club_books}],col:["#F2849E","#2C3650"],hi:0,csub:"함께 읽기"},
+    {h:"재독",parts:[{l:"다시 읽음",v:s.rereads},{l:"한 번",v:s.done-s.rereads}],col:["#7FD17F","#2C3650"],hi:0,centerType:"count",csub:"다시 펼침"},
+    {h:"완결성",parts:[{l:"완독",v:s.done},{l:"읽는 중·중단",v:s.unfinished}],col:["#5FE0C0","#2C3650"],hi:0,csub:"완독률"},
+    {h:"형식",parts:[{l:"소설·문학",v:125},{l:"비소설·교양",v:104}],col:["#5FE0C0","#5BA8F0"],hi:0,csub:"소설·문학"}
   ];
   var dg=$("donuts");
   donutDefs.forEach(function(def){
@@ -632,7 +632,7 @@ footer .fine{font-size:.8rem;color:rgba(233,224,206,.5);border-top:1px solid rgb
     var bars="";
     m.forEach(function(d,i){
       var bw=iw/m.length*0.5, bx=x(i)-bw/2, bh=ih-(yM(d.month)-padT), by=padT+ih-bh;
-      bars+='<rect x="'+bx+'" y="'+(padT+ih)+'" width="'+bw+'" height="0" rx="2" fill="#C04A2B" opacity="0.35" class="tlbar" data-y="'+by+'" data-h="'+bh+'"></rect>';
+      bars+='<rect x="'+bx+'" y="'+(padT+ih)+'" width="'+bw+'" height="0" rx="2" fill="#9B8CFF" opacity="0.4" class="tlbar" data-y="'+by+'" data-h="'+bh+'"></rect>';
     });
     var grid="",labs="";
     for(var g=0;g<=4;g++){var gv=Math.round(maxCum*g/4),gy=yC(gv);
@@ -641,10 +641,10 @@ footer .fine{font-size:.8rem;color:rgba(233,224,206,.5);border-top:1px solid rgb
     var xlab="";
     m.forEach(function(d,i){ if(d.name.slice(5)==="01"){ xlab+='<text class="tl-axis" x="'+x(i)+'" y="'+(H-padB+22)+'" text-anchor="middle">'+d.name.slice(0,4)+'</text>'; }});
     node.innerHTML='<svg viewBox="0 0 '+W+' '+H+'">'+
-      '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C04A2B" stop-opacity="0.28"/><stop offset="1" stop-color="#C04A2B" stop-opacity="0"/></linearGradient></defs>'+
+      '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FE0C0" stop-opacity="0.3"/><stop offset="1" stop-color="#5FE0C0" stop-opacity="0"/></linearGradient></defs>'+
       grid+labs+xlab+bars+
       '<path d="'+area+'" fill="url(#ag)"></path>'+
-      '<path d="'+line+'" fill="none" stroke="#9E3A20" stroke-width="2.5" stroke-linejoin="round" class="tlline" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2s ease"></path>'+
+      '<path d="'+line+'" fill="none" stroke="#5FE0C0" stroke-width="2.5" stroke-linejoin="round" class="tlline" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2s ease"></path>'+
       '</svg>';
   })();
 
@@ -656,7 +656,7 @@ footer .fine{font-size:.8rem;color:rgba(233,224,206,.5);border-top:1px solid rgb
       var col=el("div",{class:"sh-col"});
       var hpct=d.value/max*100;
       var hot=parseFloat(d.name)>=4.5;
-      col.innerHTML='<div class="sh-bar" data-h="'+hpct+'" style="background:'+(hot?"linear-gradient(180deg,#C39536,#C04A2B)":"#36605F")+'"><span>'+d.value+'</span></div><div class="sh-lab">★'+d.name+'</div>';
+      col.innerHTML='<div class="sh-bar" data-h="'+hpct+'" style="background:'+(hot?"linear-gradient(180deg,#FFC46B,#FF8A6B)":"#9B8CFF")+'"><span>'+d.value+'</span></div><div class="sh-lab">★'+d.name+'</div>';
       node.appendChild(col);
     });
   })();
@@ -729,7 +729,7 @@ footer .fine{font-size:.8rem;color:rgba(233,224,206,.5);border-top:1px solid rgb
 
   /* ---------- MOTIVATION ---------- */
   var motivIcons=["🪞","🌌","🤝","🕯️","✒️","📜"];
-  var motivColors=["#7E4A60","#3D5A7A","#73804E","#C39536","#C04A2B","#36605F"];
+  var motivColors=["#F2849E","#5BA8F0","#7FD17F","#FFC46B","#5FE0C0","#9B8CFF"];
   var fallbackMotiv=[
     {name:"나를 이해하기 위해",desc:"성장과 자아를 다룬 책을 거듭 찾고, 인생책 7권 중 다수가 정체성의 이야기입니다. 책을 거울 삼아 ‘나’를 읽습니다.",evidence:[{text:"우리는 결국 타자가 있어야만 자신을 온전히 바라볼 수 있습니다.",title:"청와대는 건물 이름이 아니다"}]},
     {name:"세계의 경이를 만나기 위해",desc:"문학 SF와 시적 과학교양으로 인간 너머의 스케일을 즐깁니다. 우주와 물리를 ‘이야기’로 받아들입니다.",evidence:[{text:"우리는 자기 자신을 아는 우주다.",title:"쿼런틴"}]},
