@@ -9,11 +9,12 @@
 
 | 페이지 | 주소 | 내용 |
 |---|---|---|
-| 독서 DNA | `/dh.archive/` (`index.html`) | 229권 독서 기록 분석 리포트 (2023–2026, 583개 밑줄) |
+| **허브 (입구)** | `/dh.archive/` (`index.html`) | 세 페이지로 가는 랜딩. 핑크(`#FF2E88`)+라임(`#C6F432`) |
+| 독서 DNA | `/dh.archive/reading-dna.html` | 229권 독서 기록 분석 리포트 (2023–2026, 583개 밑줄) |
 | 식구 갤러리 | `/dh.archive/family.html` | 포근나루 열한 식구 픽셀 캐릭터 |
 | 바다와 다현의 대화 | `/dh.archive/dialogue.html` | 나를 알아가는 대화 기록 |
 
-> 메인(`index.html`)은 **독서 DNA 리포트**입니다. 아래 문서는 그 독서 DNA 페이지의 제작·갱신 안내입니다.
+> `index.html`은 **허브 입구**(핑크+라임), 독서 DNA 리포트는 **`reading-dna.html`**로 분리돼 있습니다. 아래 문서는 그 독서 DNA 페이지의 제작·갱신 안내입니다.
 
 ## 배포 (GitHub Pages 자동연동)
 
@@ -68,10 +69,11 @@
 ## 파일 구조
 
 ```
-index.html              독서 DNA 리포트 (구조·디자인·SVG 차트) — 메인
+index.html              아카이브 허브 입구 (핑크+라임, 세 페이지 카드)
+reading-dna.html        독서 DNA 리포트 (구조·디자인·SVG 차트, data.js 사용)
 family.html             포근나루 식구 픽셀 갤러리 (자립형 단일 파일)
 dialogue.html           바다와 다현의 대화 (자립형 단일 파일)
-data.js                 웹 임베드용 번들 (자동 생성)
+data.js                 웹 임베드용 번들 (자동 생성, reading-dna.html이 사용)
 analyze.py              백업 → 통계 재생성 (원-커맨드)
 build_data.py           data/ JSON → data.js 번들
 data/
@@ -85,7 +87,17 @@ source/                 원본 DB 두는 곳 (gitignore)
 
 ## 브랜드 컬러차트
 
-포근나루(POGNARU STUDIO) 공식 팔레트 — 모든 페이지가 이 색을 기준으로 합니다.
+**허브(`index.html`)** 는 다현 아카이브만의 톡 튀는 팔레트를 씁니다.
+
+| 이름 | HEX | 쓰임 |
+|---|---|---|
+| 쨍한 핑크 | `#FF2E88` | 배경 메인 |
+| 딥 핑크 | `#E01571` | 배경 그라데이션 |
+| 라임 | `#C6F432` | 포인트 — 버튼·링크·테두리 |
+| 딥 라임 | `#A9DC18` | 포인트 hover |
+| 화이트 / 잉크 | `#FFFFFF` / `#1A1A1A` | 카드·텍스트 |
+
+**서브 페이지**(독서 DNA·식구 갤러리·대화)는 포근나루(POGNARU STUDIO) 공식 팔레트를 따릅니다.
 
 | 이름 | HEX | 쓰임 |
 |---|---|---|
