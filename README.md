@@ -1,15 +1,19 @@
-# 📚 나의 독서 DNA · Reading DNA Report
+# 🗂️ dh.archive · 다현의 아카이브
 
-3년 반(2023–2026) 동안 쌓인 **229권의 완독 기록**과 **583개의 밑줄**을 분석해, 한 독자의 독서 취향을 시각화한 정적 웹 리포트입니다. Bookmory 앱의 개인 독서 데이터베이스를 토대로 만들었습니다.
+포근나루(POGNARU STUDIO) 다현(이다현)의 이것저것을 모아 두는 개인 아카이브입니다.
+독서 기록, 식구 갤러리, 대화 기록처럼 성격이 다른 결과물들을 한자리에 두고 GitHub Pages로 펼쳐 봅니다.
 
-🔗 **배포:** GitHub Pages (정적 호스팅) · https://pognaru.github.io/dh-books/
+🔗 **배포:** GitHub Pages (정적 호스팅) · https://pognaru.github.io/dh.archive/
 
 ## 페이지 구성
 
 | 페이지 | 주소 | 내용 |
 |---|---|---|
-| 독서 DNA | `/dh-books/` (`index.html`) | 229권 독서 기록 분석 리포트 |
-| 식구 갤러리 | `/dh-books/family.html` | 포근나루 열한 식구 픽셀 캐릭터 |
+| 독서 DNA | `/dh.archive/` (`index.html`) | 229권 독서 기록 분석 리포트 (2023–2026, 583개 밑줄) |
+| 식구 갤러리 | `/dh.archive/family.html` | 포근나루 열한 식구 픽셀 캐릭터 |
+| 바다와 다현의 대화 | `/dh.archive/dialogue.html` | 나를 알아가는 대화 기록 |
+
+> 메인(`index.html`)은 **독서 DNA 리포트**입니다. 아래 문서는 그 독서 DNA 페이지의 제작·갱신 안내입니다.
 
 ## 배포 (GitHub Pages 자동연동)
 
@@ -17,9 +21,9 @@
 
 1. 저장소 **Settings → Pages → Source: GitHub Actions** (최초 1회만 설정)
 2. 이후엔 `git push origin main` 만 하면 1~2분 뒤 자동 반영
-3. 모든 경로는 상대경로라 `/dh-books/` 하위에서 그대로 동작 (별도 base 설정 불필요)
+3. 모든 경로는 상대경로라 `/dh.archive/` 하위에서 그대로 동작 (별도 base 설정 불필요)
 
-> 넷리파이 크레딧 소진(2026-06-24)으로 GitHub Pages로 이전했습니다. `netlify.toml`은 참고용으로 남아 있습니다.
+> 넷리파이 크레딧 소진(2026-06-24)으로 GitHub Pages로 이전했고, 넷리파이 설정(`netlify.toml`)은 삭제했습니다.
 
 ## 무엇을 담았나
 
@@ -64,8 +68,9 @@
 ## 파일 구조
 
 ```
-index.html              독서 DNA 리포트 (구조·디자인·SVG 차트)
+index.html              독서 DNA 리포트 (구조·디자인·SVG 차트) — 메인
 family.html             포근나루 식구 픽셀 갤러리 (자립형 단일 파일)
+dialogue.html           바다와 다현의 대화 (자립형 단일 파일)
 data.js                 웹 임베드용 번들 (자동 생성)
 analyze.py              백업 → 통계 재생성 (원-커맨드)
 build_data.py           data/ JSON → data.js 번들
@@ -76,12 +81,11 @@ data/
   quotes.json           메모 원문 전체 (gitignore)
   comments.json         리뷰 원문 전체 (gitignore)
 source/                 원본 DB 두는 곳 (gitignore)
-netlify.toml            배포 설정
 ```
 
 ## 브랜드 컬러차트
 
-포근나루(POGNARU STUDIO) 공식 팔레트 — 두 페이지 모두 이 색을 기준으로 합니다.
+포근나루(POGNARU STUDIO) 공식 팔레트 — 모든 페이지가 이 색을 기준으로 합니다.
 
 | 이름 | HEX | 쓰임 |
 |---|---|---|
