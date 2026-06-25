@@ -2,18 +2,24 @@
 
 3년 반(2023–2026) 동안 쌓인 **229권의 완독 기록**과 **583개의 밑줄**을 분석해, 한 독자의 독서 취향을 시각화한 정적 웹 리포트입니다. Bookmory 앱의 개인 독서 데이터베이스를 토대로 만들었습니다.
 
-🔗 **배포:** Netlify (정적 호스팅) · https://dh-books.netlify.app
+🔗 **배포:** GitHub Pages (정적 호스팅) · https://pognaru.github.io/dh-books/
 
-## 배포 (GitHub 자동연동)
+## 페이지 구성
 
-별도 빌드가 없는 정적 사이트라, Netlify에 GitHub 저장소를 연결하면 푸시할 때마다 자동 배포됩니다.
+| 페이지 | 주소 | 내용 |
+|---|---|---|
+| 독서 DNA | `/dh-books/` (`index.html`) | 229권 독서 기록 분석 리포트 |
+| 식구 갤러리 | `/dh-books/family.html` | 포근나루 열한 식구 픽셀 캐릭터 |
 
-1. Netlify 대시보드 → **dh-books** 사이트 → **Site configuration → Build & deploy → Continuous deployment**
-2. **Link repository** → GitHub의 `POGNARU/dh-books` 선택 (이미 연결돼 있으면 이 단계는 건너뜀)
-3. 빌드 설정 — **Build command:** 비움 / **Publish directory:** `.` (`netlify.toml`에 이미 지정됨)
-4. **Production branch** 를 `claude/vigilant-galileo-rldqcr` (현재 저장소 기본 브랜치)로 지정 → **Deploy**
+## 배포 (GitHub Pages 자동연동)
 
-> 새 사이트로 만들 경우: **Add new site → Import an existing project → GitHub → `dh-books`** 선택 후 위 3·4번 설정만 확인하면 됩니다. 빌드 명령은 없습니다.
+별도 빌드가 없는 정적 사이트라, `main`에 푸시하면 **GitHub Actions**가 폴더 전체를 Pages로 자동 배포합니다 (`.github/workflows/`의 `deploy-pages` 워크플로, `path: .`).
+
+1. 저장소 **Settings → Pages → Source: GitHub Actions** (최초 1회만 설정)
+2. 이후엔 `git push origin main` 만 하면 1~2분 뒤 자동 반영
+3. 모든 경로는 상대경로라 `/dh-books/` 하위에서 그대로 동작 (별도 base 설정 불필요)
+
+> 넷리파이 크레딧 소진(2026-06-24)으로 GitHub Pages로 이전했습니다. `netlify.toml`은 참고용으로 남아 있습니다.
 
 ## 무엇을 담았나
 
@@ -39,7 +45,7 @@
 3. 저장소에서 한 줄 실행 → 통계 재생성 + `data.js` 재번들 + 자동 배포:
    ```bash
    python analyze.py Database_bookmory_YYMMDD.zip   # zip 또는 .db 경로
-   git add -A && git commit -m "데이터 갱신" && git push   # Netlify 자동 재배포
+   git add -A && git commit -m "데이터 갱신" && git push   # GitHub Pages 자동 재배포
    ```
 
 ### 무엇이 자동이고 무엇이 수동인가
@@ -58,7 +64,8 @@
 ## 파일 구조
 
 ```
-index.html              리포트 (구조·디자인·SVG 차트)
+index.html              독서 DNA 리포트 (구조·디자인·SVG 차트)
+family.html             포근나루 식구 픽셀 갤러리 (자립형 단일 파일)
 data.js                 웹 임베드용 번들 (자동 생성)
 analyze.py              백업 → 통계 재생성 (원-커맨드)
 build_data.py           data/ JSON → data.js 번들
@@ -71,6 +78,19 @@ data/
 source/                 원본 DB 두는 곳 (gitignore)
 netlify.toml            배포 설정
 ```
+
+## 브랜드 컬러차트
+
+포근나루(POGNARU STUDIO) 공식 팔레트 — 두 페이지 모두 이 색을 기준으로 합니다.
+
+| 이름 | HEX | 쓰임 |
+|---|---|---|
+| 크림 | `#FDF4EE` | 배경·여백 |
+| 살구 | `#F8E4D4` | 보조 면·강조 배경 |
+| 테라코타 | `#C8845A` | 포인트·강조선 |
+| 다크브라운 | `#3C2415` | 본문·제목 텍스트 |
+
+**폰트** — 로고: Gowun Batang / 메인 명조: Nanum Myeongjo / 보조 고딕: Gowun Dodum / 인쇄 본문: KoPubWorld 바탕체 Light
 
 ## 기술
 
