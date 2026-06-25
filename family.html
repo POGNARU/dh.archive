@@ -11,7 +11,7 @@
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
 :root{
-  --paper:#FFF4FA; --paper-2:#FDE7F1; --card:#FFF7D4; --ink:#2C2333; --ink-2:#6B5B66;
+  --paper:#FFF4FA; --paper-2:#FDE7F1; --card:rgba(255,250,214,.5); --ink:#2C2333; --ink-2:#6B5B66;
   --muted:#AEA1B2; --line:#F4DCEA; --terra:#FF5C9E; --terra-d:#E83C86; --lime:#9FCF1E;
   --serif:"Noto Serif KR",serif; --batang:"Gowun Batang",serif;
   --sans:"Pretendard",-apple-system,BlinkMacSystemFont,system-ui,"Malgun Gothic",sans-serif;
@@ -44,7 +44,8 @@ h1{font-family:var(--batang);font-weight:700;font-size:clamp(30px,5vw,46px);marg
 .flip:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
 .scene.flipped .flip{transform:rotateY(180deg)}
 .face{backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  background:var(--card);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  border:1px solid rgba(255,255,255,.6);border-radius:18px;
   box-shadow:0 1px 2px rgba(60,36,21,.04),0 10px 26px rgba(60,36,21,.06);
   display:flex;flex-direction:column;align-items:center;text-align:center}
 .scene:hover .face{box-shadow:0 6px 14px rgba(60,36,21,.07),0 16px 36px rgba(60,36,21,.1)}
